@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="row mb-3">
+    <div class="col d-flex justify-content-end">
+      <button (click)="navi()" class="btn btn-primary">Navigate to Detailed View</button>
+    </div>
+  </div>
+  <table class="table" [cellSpacing]="0">
+    <thead>
+      <tr align="center">
+        <th>Sampling Time</th>
+        <th>Project Name</th>
+        <th>Construction Count</th>
+        <th>Is Construction Completed</th>
+        <th>Length of the Road</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of jsonData" align="center">
+        <td>{{ item.SamplingTime | dateFormat }}</td>
+        <td>{{ getProperty(item, 'Project Name') }}</td>
+        <td>{{ getProperty(item, 'Construction Count') }}</td>
+        <td>{{ getProperty(item, 'Is Construction Completed') }}</td>
+        <td>{{ getProperty(item, 'Length of the road') }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

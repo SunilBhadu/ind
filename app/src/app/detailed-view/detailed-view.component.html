@@ -1,0 +1,47 @@
+<div class="container mt-5" *ngIf="jsonData && jsonData.length">
+  <div class="row mb-3">
+    <div class="col d-flex justify-content-end">
+      <button (click)="navigate()" class="btn btn-primary">Navigate to Summary View</button>
+    </div>
+  </div>
+  <div class="parent-container">
+    <div class="left-list">
+      <div *ngFor="let item of jsonData" (click)="onItemSelected(item)" [class.selected]="item === selectedItem">
+        {{ item.SamplingTime | dateFormat}}
+      </div>
+    </div>
+
+    <div class="right-details">
+      <div class="input-container">
+        <div class="input-row">
+          <label>Project Name:</label>
+          <input type="text" [ngModel]="getPropertyValue('Project Name')"
+            (ngModelChange)="setProperty('Project Name', $event)" />
+        </div>
+
+        <div class="input-row">
+          <label for="constructionCount">Construction Count:</label>
+          <input type="number" [ngModel]="getPropertyValue('Construction Count')"
+            (ngModelChange)="setProperty('Construction Count', $event)" />
+        </div>
+
+        <div class="input-row">
+          <label>Is Construction Completed:</label>
+          <input type="checkbox" [checked]="getPropertyValue('Is Construction Completed')" #isCompletedCheckbox
+            (change)="onCompletedChange(isCompletedCheckbox.checked)" />
+        </div>
+
+        <div class="input-row">
+          <label>Length of Road:</label>
+          <div class="input-with-unit">
+            <input type="number" [ngModel]="getPropertyValue('Length of the road')" 
+                   (ngModelChange)="setProperty('Length of the road', $event)" step="0.1" />
+            <span class="unit">KM</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="save-button btn btn-success" (click)="onSaveClicked()">Save</button>
+    </div>
+  </div>
+</div>

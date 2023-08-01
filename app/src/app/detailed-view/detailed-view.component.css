@@ -1,0 +1,81 @@
+.container {
+  margin-top: 5rem;
+}
+
+.parent-container {
+  display: flex;
+}
+
+.left-list {
+  border: 5px solid black;
+  padding: 0;
+  width: fit-content;
+  min-height: 220px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.left-list div {
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 5px solid black;
+}
+
+.left-list div.selected {
+  background-color: #c0c0c0;
+}
+
+.right-details {
+  padding: 10px;
+  border-right: 5px solid black;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  position: relative;
+  width: fit-content;
+}
+
+.right-details .input-container {
+  margin-bottom: 40px;
+}
+
+.right-details .input-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.right-details .input-row label {
+  width: 200px;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.right-details .input-row input[type="text"],
+.right-details .input-row input[type="number"],
+.right-details .input-row input[type="checkbox"] {
+  flex: 1;
+}
+
+.save-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.input-with-unit {
+  position: relative;
+}
+
+.unit {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* to prevent clicking on the "KM" */
+}
